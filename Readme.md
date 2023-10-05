@@ -1,157 +1,140 @@
 <img src="https://bit.ly/2VnXWr2" alt="Ironhack Logo" width="100"/>
 
-# Welcome to the Data Thieves Project!
+# Pages&Screens - Where Movies & Books Go on Awkward First Dates
 
-In this project you will get all the data yourself! 😱 
-By now, getting pre-made databases is way too simple for you, it's high time you start leveraging your freshly learnt skills, and bring your inner hacker into practice. Discover all the possibilities that web data has to offer; use your creativity and discuss in group how you can reach the next level! 
+*[José Cerqueira, Amanda Donini, Christina Cimini, Antonio Valenzuela]*
 
-There will be plenty of projects where the focus will be on doing analysis. For this one, we want you to develop your own product or new features for an existing business. You are welcome to use the analytical tools you have learned as well, but the focus should be on functionality this time.
+*[Data Analytics - AG 2023]*
 
 ## Content
-
 - [Project Description](#project-description)
-- [Project Goals](#project-goals)
-- [Requirements](#requirements)
-- [Deliverables](#deliverables)
-- [Mentoring](#mentoring)
-- [Schedule](#schedule)
-- [Json Structure](#json-structure)
-- [Presentation](#presentation)
-- [Tips & Tricks](#tips-&-tricks)
-- [Resources](#resources)
+
+
+- [Hypotheses / Questions](#hypotheses-/-questions)
+- [Dataset](#dataset)
+- [Workflow](#workflow)
+- [Organization](#organization)
+- [Links](#links)
 
 <a name="project-description"></a>
 
 ## Project Description
 
-In this project, you will choose a topic and collect all the data by yourself. Luckily there's hundreds of Free API's where you can pull data from, and for the cases where there's no API, you'll have a chance to practice your cool web-scraping skills.
-If needed, you can later enrich your data with other sources of data.
-Always with a business sense in mind, you'll have a chance to dive deep into a topic of your choosing and come up with a new product/ features. 
-You don't need to reinvent the wheel, sometimes looking at things through a different perspective is all it takes to develop great solutions for specific users.
+Welcome to our project - Pages&Screens - where we combine user interface, web scraping and API to allow people their fair share of procrastination.
 
-<a name="project-goals"></a>
+Our main objective in creating this application is to allow the user the option of choosing how to spend their free time. By choosing either a movie or a book option, the user has the possibility of writing his wildest desires of what that movie or book should be about. After that mind wandering, the app takes that information and gives the best results possible, taking on key words and also based on ranking.
 
-## Project Goals
+<a name="hypotheses-/-questions"></a>
 
-- Learn how to develop an interesting question and find the data to answer it.
-- Learn how to obtain data from different sources, including APIs, web-scraping and maybe even building some automated scrapers.
-- Your data and pipeline should serve as the core development of the project, enabling to build your business idea.
-- In case you need additional data to improve the quality of your project, feel free to enrich with other open-source databases available online.
+## Hypotheses / Questions
 
-<a name="requirements"></a>
+A usable tool that combines the user interface with dataframes search, got from web scraping and API tools.
 
-## Requirements
+<a name="dataset"></a>
 
-- You must plan your project. That is why creating a Kanban or Trello Board is mandatory. You have a template for Trello [here](https://trello.com/b/26Wr3pVF/project-3-data-thief).
-- You **CAN'T CODE** until you project is planned.
-- Create a _.gitignore_ file and include it in your repository.
-- Your project must include data from (at least) 2 different data sources (APIs & web, dataset & APIs, ...)
+## Dataset
+Our project is divided between three main files. The web scrapping file of GoodReads, the API themoviedb request file and the pages&screens main code, responsible for the interaction of the previous two.
 
-<a name="deliverables"></a>
+- readdy_to_prod_books.ipynb
+    Web scrapping tool responsible for the creation of a dataframe of books titles, description and rating from the GoodReads website. 
 
-## Deliverables
+- movies_ready.ipynb
+    API interaction tool, responsible for the creation of a usable dataframe of movies, with titles, description and rating. 
 
-You are required to turn in the following:
+- pages&screens.ipynb
+    Main code with user interface. Gets the necessary information from the user in order to search for key words in the description columns of movies or books dataframes, depending on the user choice. 
+    Presents the results based on ratings from the API and GoodReads and creates a clickable Amazon link to search for the desirable movie or book option.
 
-1. GitHub Repository with scripts and notebooks used, README and a requirements.txt file.
-2. README file should have a description of your project and how does the pipeline work.
-3. Requirements file should have all the packages used for someone to run your scripts/notebooks. Always consider that when someone uses your code, they'll do it in a new environment, where the only packages that should be installed are the ones your project requires to be ran. Ideally it should also be specified the package version (ex: `scipy==1.4.1`)
-5. Links to any external data you used (should also be on the README file) .
-6. Slides for your presentation.
+- wordery_readdy.ipynb
+    Secondary code responsible for retrieving a usable dataframe of books, similar to GoodReads, in case Goodreads failure .
 
-<a name="mentoring"></a>
 
-## Mentoring
+<a name="Structure"></a>
+### Files Avaiable:
 
-Your TA's and  LT will be your mentors!
-We will:
+Our project is divided between three main files. The web scrapping file of GoodReads, the API themoviedb request file and the pages&screens main code, responsible for the interaction of the previous two.
 
-- Follow your project in general, will be the second person that knows more about the project, after your group.
-- Check if you are following the tasks, your blockers, etc
-- Help/support you in specific questions.
+- readdy_to_prod_books.ipynb
+    Web scrapping tool responsible for the creation of a dataframe of books titles, description and rating from the GoodReads website. 
 
-Your mentor is NOT meant to:
+- movies_ready.ipynb
+    API interaction tool, responsible for the creation of a usable dataframe of movies, with titles, description and rating. 
 
-- Know everything.
-- Be your manager. You have to be the responsible person to do the tasks!
+- pages&screens.ipynb
+    Main code with user interface. Gets the necessary information from the user in order to search for key words in the description columns of movies or books dataframes, depending on the user choice. 
+    Presents the results based on ratings from the API and GoodReads and creates a clickable Amazon link to search for the desirable movie or book option.
 
-<a name="schedule"></a>
+- wordery_readdy.ipynb
+    Secondary code responsible for retrieving a usable dataframe of books, similar to GoodReads, in case Goodreads failure .
 
-## Schedule
+<a name="Other Files"></a>
+### Web Scrapping - GoodReads:
 
-This one is on you! You have already a couple of projects in your bag and are getting better and better at organising and working as a team, let's keep building that momentum.
+- books_df_with_description.csv
+    File created after running readdy_to_prod_books.ipynb
 
-<a name="json-structure"></a>
+    As a dataframe:
+<img src="https://ibb.co/FVw6bML" alt="Books DF" width="500"/>
 
-## README File structure
+  - top_250_movies_by_genre.csv
+    File created after running movies_ready.ipynb
 
-The README will be your paper and exists to act as a guide of your project. From describing the idea to having a walk-through on how to use your scripts, the README is the welcome file for any user that encounters your project.
+    As a dataframe:
+<img src="https://ibb.co/2Ypk2qD" alt="Movies DF" width="500"/>  
 
-The structure should be:
+<a name="Resources"></a>
+## Web Scrapping - GoodReads:
 
-1. Title of the project
-2. Introduction to your project.
-3. Explanation of how your pipeline works (API's + web-scraping depending on each case).
-4. Links to sources of external data you used to enrich your project (if aplicable).
-5. Conclusions after your analysis/ product/ feature(s) development.
-6. Further questions.
+https://www.goodreads.com/list/show/1.Best_Books_Ever
 
-<a name="presentation"></a>
+Best Books Ever
+The best books ever, as voted on by the general Goodreads community. 
 
-## Presentation
+A list by rating or over 100.000 books.
 
-You will have 10 minutes to present your project. The below are some ideas for slides you could include in your presentation; those marked with an **(M)** are mandatory!
+[Dataset]() 
 
-- **(M)** Title of the project
-- **(M)** Business idea.
-- **(M)** Technical developments.
-- Main challenges & strengths.
-- Product / Feature showcasing.
-- Main insights.
-- Questions you couldn't answer.
-- Something funny that happened during the project.
-- Things you learned during this project.
-- If you could start from scratch, what would you do differently?
+<a name="workflow"></a>
 
-<a name="tips-&-tricks"></a>
+## Workflow
 
-## Tips & Tricks
+In our project, we followed a well-structured workflow that allowed us to efficiently achieve our objectives. Here are the key steps we went through:
 
-- First, choose your topic and look for API's that can help you providing data.
-- Before you start coding and integrate more data, propose some interesting questions you could answer with the data you have.
+- Project Planning: We initiated the project by defining its objectives, scope, and requirements. This crucial step helped us establish a clear roadmap.
 
-<a name="resources"></a>
+- Team Formation: Our team was divided into two specialized sub-teams, each focusing on a specific aspect of the project. One team was dedicated to web scraping, while the other focused on working with APIs.
 
-## Resources
+- Web Scraping Team Workflow:
 
-### Lists
+    - Data Collection: The web scraping team's primary responsibility was to collect data from 2 websites. This involved identifying target websites, determining the data to scrape, and developing the necessary scraping scripts or tools.
+    - Data Cleaning: We ensured that the scraped data was clean and consistent by addressing issues such as duplicates and missing values.
+    - Data Integration: The web scraping team prepared the scraped data for integration with the data obtained through APIs, structuring it in a standardized format.
 
-[AnyAPI](https://any-api.com/)  
-[Top 50 Most Popular APIs on RapidAPI](https://blog.rapidapi.com/most-popular-apis/)  
-[18 Fun APIs For Your Next Project](https://medium.com/@vicbergquist/18-fun-apis-for-your-next-project-8008841c7be9)
+- API Team Workflow:
 
-### Some Ideas
+    - API Integration: The API team worked on integrating data from 1 APIs, which included tasks like API authentication, making API requests, and handling responses.
+    - Data Processing: We processed the API data to extract relevant information and ensure consistency.
+    - Data Validation: Data retrieved from APIs underwent thorough validation to maintain quality and consistency standards.
 
-[WeatherBit](https://www.weatherbit.io/api)  
-[Strava](https://developers.strava.com/docs/reference/)  
-[GitHub](https://developer.github.com/v3/)  
-[Twitter](https://developer.twitter.com/en/docs.html)  
-[LastFM](https://www.last.fm/api)  
-[Spotify](https://developer.spotify.com/documentation/web-api/reference/)  
-[NYTimes](https://web.archive.org/web/20150325135221/http://developer.nytimes.com/docs/times_newswire_api/)  
-[News](https://newsapi.org/docs)  
-[Reddit](https://github.com/reddit-archive/reddit/wiki/API)  
-[Medium](https://github.com/Medium/medium-api-docs)  
-[Twitch](https://dev.twitch.tv/docs/api/reference)  
-[IGDB](https://api-docs.igdb.com/)  
-[OMDB](http://www.omdbapi.com/)  
-[GIPHY](https://developers.giphy.com/docs/)  
-[StackExchange](https://api.stackexchange.com/docs)  
-[YouTube](https://developers.google.com/youtube/v3/docs/)  
-[TheSportsDB](https://github.com/enen92/script.module.thesportsdb)  
-[NBA API](https://pypi.org/project/nba-api/)
+- Combining Results: After the completion of both web scraping and API data retrieval tasks, we merged the results. This involved matching and merging data based on common identifiers or keys.
 
-### Paper Examples
+- Main Code Development: Our main code development team then took the combined data and worked on building the core functionality of our project. This included visualization, and other processing as required to meet our project's objectives.
 
-[Data Analysis with Python](https://medium.com/@williamkoehrsen/data-analysis-with-python-19434f5d6324)  
-[The Best Mario Kart Character According To Data Science](https://medium.com/civis-analytics/the-best-mario-kart-character-according-to-data-science-7dfb65d4c18e)
+- Testing and Validation: Before deploying the project, we conducted extensive testing and validation to identify and resolve any issues or bugs in our code.
+
+- Deployment: Once the project was thoroughly tested, we deployed it to our intended environment, ensuring that it ran smoothly.
+
+<a name="organization"></a>
+
+## Organization
+
+- In organizing ourselves for the project, we employed a combination of project management tools and regular Zoom meetings to ensure effective collaboration and task management. 
+
+<a name="links"></a>
+
+## Links
+
+
+[Repository](https://github.com/zepcerqueira/project-webscraping-apis.git)  
+[Slides](https://github.com/zepcerqueira/project-webscraping-apis.git)  
+[Trello](https://trello.com/en)  
